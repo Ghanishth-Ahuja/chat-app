@@ -27,8 +27,7 @@ app.post('/messages',(req,res)=>
   res.sendStatus(200)
 })
 
-let server = app.listen(5500,()=>
-{
-  console.log(`Server running at ${server.address().port}`);
-  
-})
+const PORT = process.env.PORT || 5500;
+let server = app.listen(PORT, () => {
+  console.log(`Server running at ${PORT}`);
+});

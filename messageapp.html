@@ -64,28 +64,57 @@
 
 
 
-async function getRequest()
-{  
-  let req= await fetch('http://localhost:5500/messages');
+// async function getRequest()
+// {  
+//   let req= await fetch('http://localhost:5500/messages');
+//   let data = await req.json();
+//   console.log(data);
+//   data.forEach(element => {
+//     appendDataMessage(element.Name,element.Message)
+//   });
+// }
+
+
+
+// async function postRequest(data)
+// {  
+//   let req= await fetch('http://localhost:5500/messages',{
+//     method:"POST",
+//     headers:{
+//       "Content-Type":"application/json"
+//     },
+//     body:JSON.stringify(data)
+//   });
+
+// }
+
+
+const BASE_URL = "https://chat-app-idkb.onrender.com";
+
+async function getRequest() {  
+  let req = await fetch(`${BASE_URL}/messages`);
   let data = await req.json();
   console.log(data);
   data.forEach(element => {
-    appendDataMessage(element.Name,element.Message)
+    appendDataMessage(element.Name, element.Message);
+  });
+}
+
+async function postRequest(data) {  
+  let req = await fetch(`${BASE_URL}/messages`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
   });
 }
 
 
 
-async function postRequest(data)
-{  
-  let req= await fetch('http://localhost:5500/messages',{
-    method:"POST",
-    headers:{
-      "Content-Type":"application/json"
-    },
-    body:JSON.stringify(data)
-  });
 
+
+
+
+  
     
   // if (req.ok) {
   //   console.log("Message sent successfully!");
@@ -94,7 +123,7 @@ async function postRequest(data)
   // }
   // console.log(req.status);
   
-}
+
 
 
 
